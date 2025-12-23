@@ -7,7 +7,6 @@ $dbpassword = "";
 try{
     $pdo = new PDO($dsn, $dbusername, $dbpassword);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "<p>Database Connected!</p>";
 }
 catch(error $e){
     $message = $e->getMessage();

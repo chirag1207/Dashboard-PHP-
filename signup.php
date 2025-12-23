@@ -1,4 +1,5 @@
 <?php
+session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $login = $_POST["email"];
     $password = $_POST["password"];
@@ -14,6 +15,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user) {
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['user_id'] = $user['user_id']; // if you have user_id
+            $_SESSION['role'] = $user['role'];
             echo "<h2>Login successful!</h2>";
             header("Location: dashboard.php");
 
